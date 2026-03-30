@@ -1,7 +1,10 @@
 const express=require("express");
-const { publicgetAllCourses,  } = require("../controllers/public.controller");
+const { publicgetAllCourses, courseDetail,  } = require("../controllers/public.controller");
+const {searchCourse} = require("../controllers/user/search.controller")
 const router=express.Router();
 
+router.get("/coursedetail/:id", courseDetail);
+router.get("/search", searchCourse )
 router.get("/courses",publicgetAllCourses);
 
 

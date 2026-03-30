@@ -22,7 +22,7 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
-  res.send("hellow world gaurav kumar");
+  res.send("hellow world");
 });
 
 app.use("/auth", auth);

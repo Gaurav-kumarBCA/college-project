@@ -10,7 +10,7 @@ const signup = async (req, res) => {
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
-    return res.status(400).json({
+    return res.json({
       success: false,
       error: "All Field are required",
       data:["name", "email", "password"]
@@ -90,4 +90,6 @@ const login = async (req, res) => {
         })
     }
 };
+
+
 module.exports = { signup, login };
