@@ -67,7 +67,7 @@ const Dashboard = () => {
         {!loading && (
           <>
             {/* ================= CARDS ================= */}
-            <div className='grid grid-cols-2 sm:grid-cols-2  md:grid-cols-4 gap-3 '>
+            <div className='grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-3 '>
 
               <DashboardCard
                 icon={FaGraduationCap}
@@ -93,13 +93,7 @@ const Dashboard = () => {
                 color='bg-[#FFD6F6]'
               />
 
-              <DashboardCard
-                icon={FaBuilding}
-                title="Total Departments"
-                value={dashboard.totalDepartments || 0}
-                link="/departments"
-                color='bg-[#C3FBD8]'
-              />
+              
 
             </div>
 
