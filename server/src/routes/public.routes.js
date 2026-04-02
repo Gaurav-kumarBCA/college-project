@@ -4,7 +4,6 @@ const {searchCourse} = require("../controllers/user/search.controller")
 const router=express.Router();
 
 router.get("/coursedetail/:id", courseDetail);
-router.use("/image",require("./client-image.route"))
 router.get("/search", searchCourse )
 router.get("/courses",publicgetAllCourses);
 

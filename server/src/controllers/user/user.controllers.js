@@ -1,4 +1,4 @@
-const { signupdb, logindb } = require("../../Services/user/user.services");
+const { signupdb, logindb } = require("../../services/user/user.service");
 const {
   hasspassword,
   verifyPassword,
@@ -10,7 +10,7 @@ const signup = async (req, res) => {
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
-    return res.json({
+    return res.status(400).json({
       success: false,
       error: "All Field are required",
       data:["name", "email", "password"]
@@ -57,7 +57,6 @@ const login = async (req, res) => {
   }
     try {
         const user = await logindb(email);
-        // console.log(user)
         if (!user) {
             return res.status(404).json({
                 success: false,
@@ -86,7 +85,7 @@ const login = async (req, res) => {
         console.log(error)
         return res.status(500).json({
             success: false,
-            error: "Somthing went wrong "
+            error: "Somthing went wrong sorry ! we r sorry "
         })
     }
 };

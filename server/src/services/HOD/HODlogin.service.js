@@ -1,8 +1,7 @@
-// const HOD = require("../../models/hodassign");
-const User = require("../../models/user");
+const HOD = require("../../models/hod");
 
 const HODloginDB = async (email) => {
-    return await User.findOne(email);
+    return await HOD.findOne({email});
 }
 
 module.exports = HODloginDB;

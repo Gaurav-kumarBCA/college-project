@@ -5,5 +5,5 @@ const userSchema=new mongoose.Schema({
     password:{type:String ,required:true},
     role:{type:String, enum:["user", "admin", "HOD"], default:"user"}
 });
-const User=new mongoose.model("User",userSchema);
+const User= mongoose.model("User",userSchema);
 module.exports=User;

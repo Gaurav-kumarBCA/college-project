@@ -1,6 +1,4 @@
 const Counselling = require("../../models/counselling");
-require("../../models/course");
-require("../../models/user");
 
 const enrollmentServiceDB = async (body ) => {
   const enroll = new Counselling(body);

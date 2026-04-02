@@ -58,4 +58,12 @@ const publicgetAllCourses = async (req, res) => {
   }
 };
 
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// module.exports={publicgetAllCourses }
+// =======
+// module.exports = { publicgetAllCourses };
+// >>>>>>> gaurav-section
+// =======
 module.exports = { publicgetAllCourses, courseDetail };
+// >>>>>>> lokesh

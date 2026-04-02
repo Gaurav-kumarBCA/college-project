@@ -9,6 +9,7 @@ const adminmiddleware = require("./src/middleware/admin.middleware")
 const hodmiddleware = require("./src/middleware/HOD.middleware")
 const user = require("./src/routes/user/index");
 const HOD = require("./src/routes/HOD/index");
+const hod =require("./src/routes/HOD/hodlogin.route")
 const authMiddleware = require("./src/middleware/auth.middleware");
 const public=require("./src/routes/public.routes");
 const app = express();
@@ -26,7 +27,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", auth);
-app.use("/public",public);
+app.use("/public", public);
+app.use("/hod", hod);
 
 app.use(authMiddleware);
 
@@ -34,8 +36,8 @@ app.use("/user", user);
 
 app.use("/HOD", hodmiddleware, HOD);
 
-app.use("/admin", adminmiddleware, adminRoutes)
+app.use("/admin", adminmiddleware, adminRoutes);
 
-app.listen(PORT,() => {
+app.listen(PORT, () => {
   console.log(`server is running on http://localhost:${PORT}`);
 });

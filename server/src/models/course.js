@@ -7,6 +7,7 @@ const courseSchema = new mongoose.Schema({
     eligibility:{type:String, required:true},
     isActive:{type:Boolean, required: true},
     description:{type:String, required:true},
+    Image:{type:String,required:true}
 }, {timestamps:false});
 
 const Course = new mongoose.model("Course", courseSchema);

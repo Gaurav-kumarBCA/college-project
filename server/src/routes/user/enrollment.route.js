@@ -3,7 +3,7 @@ const { enrollment, getEnrollment } = require("../../controllers/user/enrollment
 
 const router=express.Router();
 
-router.post("/",enrollment);
-router.get("/",getEnrollment);
+router.post("/", counselling);
+
 
 module.exports=router;

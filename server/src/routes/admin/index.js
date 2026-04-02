@@ -8,8 +8,6 @@ const router = express.Router();
 
 router.use("/hod", HODmange);
 router.use("/viewCourse", viewcourses)
-router.use("/department",department)
-router.use("/image",require("./client-image.route"))
 router.use("/users",users)
 router.use("/dashboard",dashboard)
 router.use("/image",require("./client-image.route"))

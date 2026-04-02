@@ -1,6 +1,4 @@
 const Course = require("../models/course");
-const department = require("../models/department");
-const User = require("../models/user");
 
 const courseDetailDB = async (id) => {
     // console.log(id)

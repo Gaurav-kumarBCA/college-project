@@ -1,5 +1,5 @@
-const HODloginDB = require("../../services/HOD/HODlogin.service");
-const { verifyPassword, generateToken } = require("../../utiles");
+const { verifyPassword, generateToken } = require("../../utiles")
+const HODloginDB=require("../../services/HOD/HODlogin.service");
 
 const HODLogin = async (req, res) => {
     const {email, password} = req.body;
@@ -19,7 +19,7 @@ const HODLogin = async (req, res) => {
             });
         }
 
-        const isValid = verifyPassword(password, data.password);
+        const isValid =await verifyPassword(password, data.password);
         if(!isValid){
             return res.status(400).json({
                 success:false,
@@ -35,7 +35,7 @@ const HODLogin = async (req, res) => {
         })
 
         return res.status(200).json({
-            success:false,
+            success:true,
             message:"Login successfully",
             data:{data, accessToken, refreshToken}
         })
@@ -43,7 +43,7 @@ const HODLogin = async (req, res) => {
         console.log(error);
         return res.status(400).json({
             success: false,
-            error:"Something went wrong"
+            error:"Something went wrong "
         })
     }
 }

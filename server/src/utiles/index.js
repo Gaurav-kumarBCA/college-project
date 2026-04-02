@@ -4,18 +4,16 @@ const jwt = require("jsonwebtoken");
 
 const generateToken = (data) => {
   const accessToken = jwt.sign(data, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: "6d",
   });
   const refreshToken = jwt.sign(data, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: "6d",
   });
   return { accessToken, refreshToken };
 };
 const verifyToken = (token) => {
   return jwt.verify(token, process.env.JWT_SECRET);
 };
-
-// module.exports={generateToken,verifyToken}
 
 const hasspassword = async (password, salt) => {
   return bcrypt.hash(password, salt);

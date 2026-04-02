@@ -1,5 +1,9 @@
 server/node_modules
 client/node_modules
+admin/node_modules
+admin/.env
 server/.env
 client/.env
-admin/.env
+client/.vite
+hod/.vite
+hod/.env

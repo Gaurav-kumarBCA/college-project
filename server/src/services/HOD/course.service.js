@@ -7,7 +7,7 @@ const getCourseDB = async () => {
 const courseDB = async (courseInfo) => {
     const couseData =new Course(courseInfo);
     const couse=  await couseData.save();
-    return couse
+    return couse;
 }
 
 const updateCourseDB = async (id, updatedBody) => {

@@ -4,7 +4,6 @@ const { courseDB, getCourseDB, updateCourseDB, deleteCourseDB } = require("../..
 const getCourse = async (req, res) => {
     try {
         const courses = await getCourseDB();
-        console.log(courses)
         if(!courses){
             return res.status(500).json({
                 success:false,
@@ -27,11 +26,12 @@ const getCourse = async (req, res) => {
 
 const course = async (req, res) => {
     const courseInfo = req.body;
+    console.log(courseInfo);
     if(!courseInfo){
         return res.status(400).json({
             success:false,
             error:"Please enter all fields",
-            data: ["courseName", "fees", "duration", "eligibility", "isActive", "description"],
+            required: ["courseName", "fees", "duration", "eligibility", "isActive", "description"],
         })
     }
     try {
@@ -65,7 +65,7 @@ const course = async (req, res) => {
 const updateCourse = async (req, res) => {
     const {id} = req.params;
     const updatedBody = req.body;
-    // console.log(id, updatedBody);
+    console.log(id, updatedBody,"id");
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({
@@ -82,6 +82,7 @@ const updateCourse = async (req, res) => {
     }
     try {
         const updateCourse = await updateCourseDB(id, updatedBody);
+        console.log(updateCourse,"hi update course");
         if(!updateCourse){
             return res.status(404).json({
                 success:false,
@@ -115,6 +116,7 @@ const deleteCourse = async (req, res) => {
     }
     try {
         const courseDelete = await deleteCourseDB(id);
+        console.log(courseDelete,"klmno");
         if(!courseDelete){
             return res.status(404).json({
                 success: false,
