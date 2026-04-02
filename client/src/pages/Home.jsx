@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import Homecourse from "../components/Homecourse";
+// import useFetch from "../hooks/useFetch";
 
 const Home = () => {
   return (
@@ -60,6 +61,11 @@ export default Home;
 
 export const Slider = () => {
   const [current, setCurrent] = useState(0);
+
+  // const url = import.meta.env.VITE_SERVER_URL;
+  // const {data} = useFetch(` ${url}/public/image`)
+  // console.log(data, "this is datain home page")
+  
 
   const slides = [
     { url: "/slide1.jpg", tagline: "Welcome to Shree Satya College" },//0
