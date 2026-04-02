@@ -8,7 +8,7 @@ const ProtectedRoutes = ({ children }) => {
     return (
       <Navigate
         to="/login"
-        state={{ from: "/course" }}
+        state={{ from: location.pathname }}
         replace
       />
     );

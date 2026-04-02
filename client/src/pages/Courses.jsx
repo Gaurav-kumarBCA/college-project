@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import useFetch from "../hooks/useFetch";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Search } from "lucide-react";
 
 const Courses = () => {
@@ -29,23 +29,24 @@ export default Courses;
 // ======================= COURSE SECTION =======================
 
 export const CourseSection = () => {
+  const location = useLocation()
   const [keyword, setKeyword] = useState("");
   const [course, setCourse] = useState([]);
   const [loadingSearch, setLoadingSearch] = useState(false);
 
-  // 🔥 Fetch all courses initially
+  //  Fetch all courses initially
   const { data, loading } = useFetch(`public/courses`);
 
   console.log(data, "this is data")
 
-  // 🔥 Set initial data
+  // Set initial data
   useEffect(() => {
     if (data?.data) {
       setCourse(data.data);
     }
   }, [data]);
 
-  // 🔥 Search Function
+  //  Search Function
   const searchCourse = async () => {
     try {
       if (!keyword.trim()) {
@@ -76,7 +77,7 @@ export const CourseSection = () => {
     }
   };
 
-  // 🔥 Loading state (initial load)
+  //  Loading state (initial load)
   if (loading) {
     return (
       <div className="text-center py-20 text-lg font-semibold">
@@ -88,7 +89,7 @@ export const CourseSection = () => {
   return (
     <div className="px-6 py-12 bg-gray-50">
       
-      {/* 🔍 SEARCH BAR */}
+      {/*  SEARCH BAR */}
       <div className="flex justify-center my-5">
         <div className="flex w-full max-w-md">
           

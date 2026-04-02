@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { CiMail, CiLock, CiTextAlignJustify } from "react-icons/ci";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
@@ -43,7 +45,7 @@ const {login} = useAuth();
           data.data.accessToken,
           data.data.user, 
         );
-        navigate("/");
+        navigate(from);
       }
       // console.log(data.data.accessToken,"access", data.data.refreshToken,"refresh")
       if (!data.success) {
