@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const HODSchema = new mongoose.Schema(
   {
-    HODName: { type: String, required: true },
+    hodName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: Number, required: true, unique: true },
     department: { type: String, required: true },

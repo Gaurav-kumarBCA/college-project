@@ -16,7 +16,6 @@ const getDashboard=async(req,res)=>{
         data:data
     })
     } catch (error) {
-        console.log(error);
       res.status(500).json({
         success:false,
         error:"Somthing went wrong"

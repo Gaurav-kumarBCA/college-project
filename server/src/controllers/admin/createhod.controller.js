@@ -5,20 +5,20 @@ const { hasspassword } = require("../../utiles");
 const saltRound = 10;
 
 const createHOD = async (req, res) => {
-    const {HODName,email,phone,department,password,role} = req.body;
+    const {hodName, email, password,department,phone} = req.body;
     console.log(req.body);
 
-    if(!HODName || !email || !password || !phone || !department || !role ){
+    if(!hodName|| !email || !password || !department || !phone){
         return res.status(400).json({
             success:false,
             error: "all fields required",
-            required:["name", "email", "password", "department","phone"]
+            data:["hodName", "email", "password" ,"department" ,"phone"]
         });
     }
 
     try {
         const hashPassword = await hasspassword(password, saltRound)
-        const data = await signupdb({HODName, email, password: hashPassword, role:"HOD"} );
+        const data = await createHODDB({hodName, email, password: hashPassword,department ,phone ,role:"HOD"} );
         if(!data){
             return res.status(400).json({
                 success:false,
