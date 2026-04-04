@@ -10,8 +10,8 @@ const login = () => {
   const { user,setUser, login } = useAuth();
 
   const [formData, setFormData] = useState({
-    email: "gaurav@gmail.com",
-    password: "123456789",
+    email: "",
+    password: "",
   });
 
   const inputHandler = (e) => {
@@ -23,7 +23,7 @@ const login = () => {
 
     try {
       const url = import.meta.env.VITE_SERVER_URL;
-      const res = await fetch(`${url}/hod/login`, {
+      const res = await fetch(`${url}/Hod/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,6 +32,7 @@ const login = () => {
       });
 
       const data = await res.json();
+      console.log(data,'hi login data');
       if (!data.success) {
         toast.error(data.error);
         return;
@@ -46,7 +47,6 @@ const login = () => {
       }
       
       toast.success("login successfully");
-      // setUser(data?.data,"jod ");
 
       setTimeout(() => {
         navigate("/");

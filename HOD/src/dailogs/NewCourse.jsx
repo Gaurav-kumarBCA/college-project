@@ -16,12 +16,12 @@ const NewCourse = ({ add }) => {
       >
         Add coures
       </button>
-      <Dailog open={open} close={onClose} add={add} />
+      <Dailog open={open} close={onClose} add={add} setOpen={setOpen}/>
     </div>
   );
 };
 
-const Dailog = ({ open, close, add }) => {
+const Dailog = ({ open, close, add, setOpen }) => {
   const [input, setInput] = useState({
     courseName: "",
     duration: "",
@@ -45,7 +45,7 @@ const Dailog = ({ open, close, add }) => {
     setImageFile(file);
 
      if (uploaded || imageFile) {
-       alert("Only one image allowed ❌");
+       alert("Only one image allowed ");
        return;
      }
 
@@ -60,10 +60,13 @@ const Dailog = ({ open, close, add }) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = async () => {
+  const submitHandler = async (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     try {
       if (!imageUrl) {
         alert("Please upload image first");
+        // setOpen(true)
         return;
       }
 
@@ -98,6 +101,7 @@ const Dailog = ({ open, close, add }) => {
         isActive: "",
         description: "",
         eligibility: "",
+        // image:""
       });
 
       close();
@@ -112,7 +116,7 @@ const Dailog = ({ open, close, add }) => {
 
       if (!imageFile) {
         alert("Please select image first");
-        setIsUploading(false);
+        // setIsUploading(false);
         return;
       }
 
@@ -405,6 +409,7 @@ const Dailog = ({ open, close, add }) => {
               onClick={uploadImage}
               disabled={isUploading || uploaded}
               className="flex bg-orange-300 hover:bg-orange-400 mt-2 rounded-2xl px-3 py-2 disabled:opacity-50"
+              
             >
               {isUploading ? "Uploading..." : uploaded  ? "Uploaded"  : "Upload"}
             </button>

@@ -5,3 +5,4 @@ admin/.env
 server/.env
 client/.env
 client/.vite
+HOD/.env
