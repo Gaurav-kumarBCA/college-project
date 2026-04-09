@@ -10,7 +10,7 @@ const Contact = () => {
 
   const [formData, setFormData] = useState({
     from_name: "",
-    from_email: "9027410147lk@gmail.com",
+    from_email: "",
     message: "",
   });
 
@@ -31,10 +31,11 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_pwc7puo",
-        "template_iit9329",
+        "service_o27tbmm",
+        "template_vl9brt7",
+        
         form.current,
-        "iJ0hj-rHEzXQL9x0P"
+        "TaueVIIZKvYDfseGX"
       )
       .then(
         (result) => {
@@ -42,6 +43,7 @@ const Contact = () => {
           alert("Message sent successfully!");
           setFormData({
             from_name: "",
+            from_email: "",
             message: "",
           });
         },
@@ -124,7 +126,7 @@ const Contact = () => {
                 />
 
                 <input
-                readOnly
+                
                   type="email"
                   name="from_email"
                   value={formData.from_email}
