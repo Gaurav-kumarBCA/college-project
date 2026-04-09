@@ -7,3 +7,4 @@ client/.env
 client/.vite
 hod/.vite
 hod/.env
+HOD/.env

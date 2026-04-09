@@ -8,7 +8,8 @@ import { AuthProvider } from "./context/AuthProvider";
 import Users from "./pages/Users";
 import Admissions from "./pages/Admissions";
 import Counsiling from "./pages/Counselling";
-import ViewfullInfo from "./pages/ViewfullInfo";
+import ViewfullInfo from "./pages/viewfullInfo";
+
 
 const App = () => {
   return (
