@@ -21,6 +21,7 @@ connectDB();
 // app.use(cors())
 
 app.use(express.json());
+// app.use(cors({origin:"https://admin-project-ashy.vercel.app/",Credential:true}));
 app.use(cors({origin:"https://admin-project-ashy.vercel.app/",Credential:true}));
 app.get("/", (req, res) => {
   res.send("hellow world");
