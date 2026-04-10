@@ -4,7 +4,7 @@ import DeleteCourse from "../dailogs/DeleteCourse";
 import EditCourse from "../dailogs/EditCourse";
 import Layout from "../components/Layout";
 import { Loader } from "lucide-react";
-import { withAuth } from "../components/WithAuth";
+import { withAuth } from "../components/withAuth";
 
 const Course = () => {
   const [data, setData] = useState([]);
@@ -69,71 +69,6 @@ const Course = () => {
             <NewCourse add={addCourse} />
           </div>
 
-          {/* <div className="overflow-x-auto max-h-120  overflow-y-scroll hide-scrollbar relative border  rounded ">
-            <table className="w-full text-left border-collapse  ">
-              <thead className=" text-sm  border-b border-gray-700 sticky top-0  z-10 ">
-                <tr className=" z-50 bg-blue-400   text-white ">
-                  <th className="py-3 border-r font-semibold border-black  px-2 ">
-                    CourseName
-                  </th>
-                  <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block md:block ">
-                    Duration
-                  </th>
-                  <th className="py-3 border-r font-semibold border-black px-2 ">
-                    fees
-                  </th>
-                  <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block   ">
-                    Eligibility
-                  </th>
-                  <th className="py-3 border-r font-semibold border-black px-2">
-                    Active/NA
-                  </th>
-                  <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block ">
-                    Description
-                  </th>
-                  <th className="py-3 px-2 font-semibold  ">Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {data?.length>0 ? (data.map((item) => (
-                  <tr
-                    className="border-b border-gray-700  transition hover:bg-gray-200 "
-                    key={item._id}
-                  >
-                    <td className="py-4 px-2 border-r h ">{item.courseName}</td>
-                    <td className="py-4 border-r px-2 hidden sm:block ">
-                      {item.duration}
-                    </td>
-                    <td className="py-4 border-r px-2 ">{item.fees}</td>
-                    <td className="py-4 border-r px-2  hidden sm:block">
-                      {item.eligibility}
-                    </td>
-                    <td className="py-4 border-r px-2 ">
-                      {item.isActive ? "True" : "False"}{" "}
-                    </td>
-                    <td className="py-4 hidden sm:block border-r ">
-                      {item.description}
-                    </td>
-                    <td>
-                      <div className="flex gap-2  px-3  ">
-                        <EditCourse
-                          course={editCourse}
-                          item={item}
-                          id={item._id}
-                        />
-                        <DeleteCourse deleteD={courseDeleted} id={item._id} />
-                      </div>
-                    </td>
-                  </tr>
-                ))): (<tr>
-                    <td className="">
-                      <Loader className="animate-spin"/>
-                    </td>
-                </tr>)}
-              </tbody>
-            </table>
-          </div> */}
           <div className="overflow-x-auto max-h-120  overflow-y-scroll hide-scrollbar relative border  rounded ">
             <table className="w-full text-left border-collapse  ">
               <thead className=" text-sm  border-b border-gray-700 sticky top-0  z-10 ">
@@ -212,4 +147,4 @@ const Course = () => {
 };
 
 export default withAuth(Course);
-// export default Course;
+

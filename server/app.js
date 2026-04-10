@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-// const cors = require("cors")
 const { connectDB } = require("./src/config/db");
 const cors=require("cors")
 const auth = require("./src/routes/auth.route");
@@ -18,11 +17,15 @@ const PORT = 7000;
 
 connectDB();
 
-// app.use(cors())
-
 app.use(express.json());
-// app.use(cors({origin:"https://admin-project-ashy.vercel.app/",Credential:true}));
-app.use(cors({origin:"https://admin-project-ashy.vercel.app/",Credential:true}));
+app.use(cors({origin:"https://admin-project-ashy.vercel.app/",credentials:true}));
+// app.use(
+//   cors({
+//     origin: "https://college-project-1wcr.onrender.com",
+//     credentials: true,
+//   }),
+// );
+
 app.get("/", (req, res) => {
   res.send("hellow world");
 });
