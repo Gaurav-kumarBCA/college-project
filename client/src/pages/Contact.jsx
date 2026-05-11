@@ -31,11 +31,16 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_o27tbmm",
-        "template_vl9brt7",
-        
+        // "service_o27tbmm",
+        // "template_vl9brt7",
+
+        // form.current,
+        // "TaueVIIZKvYDfseGX",
+
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        "TaueVIIZKvYDfseGX"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(
         (result) => {
@@ -50,7 +55,7 @@ const Contact = () => {
         (error) => {
           console.error("Error:", error);
           alert("Something went wrong while sending mail");
-        }
+        },
       )
       .finally(() => {
         setLoading(false);
@@ -60,7 +65,6 @@ const Contact = () => {
   return (
     <Layout>
       <div className="bg-gray-50 text-gray-800 min-h-screen">
-
         {/* Hero Section */}
         <section className="relative h-[50vh] flex items-center justify-center">
           <img
@@ -71,9 +75,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-black/60"></div>
 
           <div className="relative text-center text-white px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Contact Us
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p className="max-w-2xl mx-auto text-lg">
               We would love to hear from you.
             </p>
@@ -83,7 +85,6 @@ const Contact = () => {
         {/* Contact Section */}
         <section className="py-16 px-6 md:px-20">
           <div className="grid md:grid-cols-2 gap-12">
-
             {/* Info */}
             <div>
               <h2 className="text-3xl font-bold mb-6 text-indigo-600">
@@ -98,12 +99,12 @@ const Contact = () => {
 
                 <div className="flex items-center gap-4">
                   <FaPhoneAlt className="text-indigo-600 text-xl" />
-                  <p>+91-1234567890</p>
+                  <p>+91-9412150186</p>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <FaEnvelope className="text-indigo-600 text-xl" />
-                  <p>SSCHE@gmail.com</p>
+                  <p>shreesatyaayurvedic@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -115,7 +116,6 @@ const Contact = () => {
               </h2>
 
               <form ref={form} onSubmit={submitHandler} className="space-y-4">
-
                 <input
                   type="text"
                   name="from_name"
@@ -126,7 +126,6 @@ const Contact = () => {
                 />
 
                 <input
-                
                   type="email"
                   name="from_email"
                   value={formData.from_email}
@@ -151,13 +150,10 @@ const Contact = () => {
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
-
               </form>
             </div>
-
           </div>
         </section>
-
       </div>
     </Layout>
   );

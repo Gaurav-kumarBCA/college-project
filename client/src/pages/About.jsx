@@ -212,7 +212,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/sports1.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778487290/sportspic14_uorwot.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Outdoor Sports</h3>
                 <p className="text-gray-600">
@@ -223,7 +223,7 @@ const About = () => {
             </div>
 
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/gym.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778486515/sportspic5_gs9bm8.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Cricket</h3>
                 <p className="text-gray-600">
@@ -234,7 +234,7 @@ const About = () => {
             </div>
 
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/martial.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778486514/sportspic10_d6ksbr.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Badminton</h3>
                 <p className="text-gray-600">
@@ -255,7 +255,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/fest1.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778486514/COCURFP4_ryb30u.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Cultural Fest</h3>
                 <p className="text-gray-600">
@@ -265,7 +265,7 @@ const About = () => {
             </div>
 
             <div className="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/fest2.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778487420/1000024932.jpg_ui6qyf.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Tech Fest</h3>
                 <p className="text-gray-600">
@@ -275,7 +275,7 @@ const About = () => {
             </div>
 
             <div className="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition">
-              <img src="/fest3.jpg" className="h-56 w-full object-cover" />
+              <img src="https://res.cloudinary.com/dsql75f5a/image/upload/v1778486515/download_4_npzdlv.jpg" className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg mb-2">Annual Function</h3>
                 <p className="text-gray-600">
