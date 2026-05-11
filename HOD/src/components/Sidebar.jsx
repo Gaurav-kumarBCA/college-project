@@ -65,28 +65,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-// import React from 'react'
-// import Layout from './Layout';
-// import { Link } from 'react-router-dom';
-
-// const Sidebar = () => {
-//   return (
-//     <div className="h-[calc(100vh-60px)]  w-[200px] bg-gradient-to-b shadow-xl/30 from-[#2D9CDB] to-[#1565C0]  ">
-//       <div className="flex flex-col w-full justify-center items-center py-4 gap-8">
-//         <div className="h-25 w-25">
-//           <img className="" src="/collegeLogo.png" alt="SSCHE" />
-//         </div>
-//         <div className="flex flex-col   w-full text-center text-white  font-semibold ">
-//           <Link to="/" className=" hover:bg-gray-300 hover:rounded-lg h-10  ">Home</Link>
-//           <Link to="/users"  className=" hover:bg-gray-300 hover:rounded-lg h-10 ">Users </Link>
-//           <Link to='/course' className=" hover:bg-gray-300 hover:rounded-lg h-10">Courses</Link>
-//           <Link to="/admissions"  className=" hover:bg-gray-300 hover:rounded-lg h-10 ">Admissions</Link>
-//           <Link to="/counselling"  className=" hover:bg-gray-300 hover:rounded-lg h-10 ">Counselling</Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Sidebar;
