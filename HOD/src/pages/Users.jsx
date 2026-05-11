@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import { Loader } from "lucide-react";
-import { withAuth } from "../components/WithAuth";
+import { withAuth } from "../components/withAuth";
 
 const Users = () => {
   const [users, setUser] = useState(null);
@@ -98,4 +98,3 @@ const Users = () => {
 
 export default withAuth(Users);
 
-// export default Users;

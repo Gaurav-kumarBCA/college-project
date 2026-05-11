@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import { withAuth } from "../components/WithAuth";
 import { Link, useParams } from "react-router-dom";
+import { withAuth } from "../components/withAuth";
 
 const Admissions = () => {
   const [admissions, setAdmissions] = useState(null);
 
-  // const {id}=useParams();
-  // console.log(id,'id');
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -21,7 +20,7 @@ const Admissions = () => {
           },
         });
         const data = await res.json();
-        // console.log(data,'hi data');
+       
         setAdmissions(data?.data || []);
       } catch (error) {
         console.log(error, "error");
@@ -103,4 +102,4 @@ const Admissions = () => {
 };
 
 export default withAuth(Admissions);
-// export default Admissions;
+

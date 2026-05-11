@@ -5,7 +5,8 @@ import { data, Link } from "react-router-dom";
 import { FaArrowCircleRight } from "react-icons/fa";
 import CircleDashboard from "../components/CircleDashboard";
 import GraphDashboard from "../components/GraphDashboard";
-import { withAuth } from "../components/WithAuth";
+import { withAuth } from "../components/withAuth";
+
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -184,4 +185,4 @@ const Home = () => {
 
 export default withAuth(Home);
 
-// export default Home;
+

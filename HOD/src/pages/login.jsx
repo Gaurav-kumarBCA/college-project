@@ -7,11 +7,11 @@ import { useAuth } from "../context/AuthProvider";
 const login = () => {
   const navigate = useNavigate();
 
-  const { user,setUser, login } = useAuth();
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
-    email: "gaurav@gmail.com",
-    password: "123456789",
+    email: "",
+    password: "",
   });
 
   const inputHandler = (e) => {

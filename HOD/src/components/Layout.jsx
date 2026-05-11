@@ -23,24 +23,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-// import React from 'react'
-// import Sidebar from './Sidebar'
-// import Navbar from './Navbar'
-
-// const Layout = ({children}) => {
-//   return (
-//     <div className="flex min-h-screen  ">
-
-//       <div className="min-w-screen  ">
-//         <Navbar />
-//         <div className="hidden md:flex flex-1">
-//           <Sidebar />
-//         <div className='flex-1  '>{children}</div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Layout;
