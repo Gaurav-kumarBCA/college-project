@@ -86,11 +86,7 @@ const login = async (req, res) => {
         console.log(error)
         return res.status(500).json({
             success: false,
-<<<<<<< HEAD
-            error: "Somthing went wrong sorry ! we are sorry "
-=======
             error: error.message
->>>>>>> a4571979a0eb1ae2a27adeb7a06495e129f2ffe6
         })
     }
 };
