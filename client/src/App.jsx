@@ -66,9 +66,9 @@ export const AppLayout = () => {
             <Route
               path="/coursedetail/:id"
               element={
-                <ProtectedRoutes>
+                // <ProtectedRoutes>
                   <CourseAbout />
-                </ProtectedRoutes>
+                // </ProtectedRoutes>
               }
             />
             <Route
