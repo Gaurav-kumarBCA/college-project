@@ -184,5 +184,8 @@ const Home = () => {
 };
 
 export default withAuth(Home);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> hod

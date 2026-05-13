@@ -18,6 +18,7 @@ const Sidebar = () => {
         </div>
 
         {/* Menu */}
+        
         <div className="flex flex-col w-full text-white font-semibold gap-2 px-2">
           <Link
             to="/"
@@ -64,4 +65,8 @@ const Sidebar = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Sidebar;
+=======
+export default Sidebar;
+>>>>>>> hod

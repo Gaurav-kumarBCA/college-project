@@ -32,6 +32,7 @@ const login = () => {
       });
 
       const data = await res.json();
+      console.log(data,'hi login data');
       if (!data.success) {
         toast.error(data.error);
         return;
@@ -46,7 +47,6 @@ const login = () => {
       }
       
       toast.success("login successfully");
-      // setUser(data?.data,"jod ");
 
       setTimeout(() => {
         navigate("/");

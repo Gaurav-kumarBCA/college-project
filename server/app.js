@@ -22,7 +22,6 @@ const PORT = process.env.PORT || 7000;
 // ✅ DB CONNECT
 connectDB();
 
-// ✅ MIDDLEWARE
 app.use(express.json());
 
 

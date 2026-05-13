@@ -41,14 +41,16 @@ const Dailog = ({ open, close,id,item,course}) => {
       );
 
       const data = await res.json();
-      if (!data.success) {
-        alert( data.error);
-        return;
-      }
+
+       if (data.success) {
+         course(id, input);
+         close();
+       } else {
+         alert(data.error || "something went wrong");
+       }
+       
     } catch (error) {
       console.log(error,"error");
-    }finally{
-      close(false);
     }
   };
 

@@ -42,6 +42,7 @@ const ViewfullInfo = () => {
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
       // Agar pehla page nahi hai toh naya page add karo
+      
       if (i > 0) {
         pdf.addPage();
       }
@@ -64,8 +65,11 @@ const ViewfullInfo = () => {
       </button>
 
       {/* Main Wrapper for PDF Content */}
+
       <div ref={pdfRef}>
+
         {/* PAGE 1: Personal Info & Education */}
+
         <div className="pdf-section bg-white p-10 w-[210mm] mx-auto border mb-4">
           <h2 className="text-center font-bold text-lg">
             SHREE SATYA GROUP OF INSTITUTION
@@ -345,6 +349,10 @@ const ViewfullInfo = () => {
               </div>
             </div>
           </div>
+<<<<<<< HEAD:HOD/src/pages/ViewfullInfo.jsx
+=======
+
+>>>>>>> hod:HOD/src/pages/viewfullInfo.jsx
         </div>
         {/* PAGE 3: Aadhar Card */}
         <div className="pdf-section w-[210mm] h-[297mm] mx-auto bg-white p-[10mm] border mb-4">

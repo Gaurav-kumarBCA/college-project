@@ -18,16 +18,28 @@ const Course = () => {
     setData(data.filter((item) => item._id !== id));
   };
 
-  const editCourse = (id, newCourse) => {
-    setData(
-      data.map((item) => {
-        if (item._id !== id) {
-          return { ...item, newCourse };
-        }
-        return (item, newCourse);
-      }),
-    );
-  };
+  // const editCourse = (id, newCourse) => {
+  //   setData( data.map((item) => {
+  //       if (item._id !== id) {
+  //         return { ...item, newCourse };
+  //       }
+  //       return (item, newCourse);
+  //     }),
+  //   );
+  // };
+
+  // const editCourse=(id,newCourse)=>{
+  //   setData(data.map((item)=>{
+  //     if(item._id === id ){
+  //       return {...item,...newCourse}
+  //     }
+  //     return item;
+  //   }))
+  // }
+
+  const editCourse=(id,newData)=>{
+    setData((prev)=>prev.map((item)=>item._id === id ? { ...item , ...newData} : item ))
+  }
 
   useEffect(() => {
     const getCourse = async () => {
@@ -54,18 +66,25 @@ const Course = () => {
 
   return (
     <Layout>
-      <div className=" h-[calc(100vh-60px)]   ">
-        <div className="max-w-9xl mx-auto  rounded relative shadow p-6 border-3 ">
-          {/* Header */}
 
-          <div className="flex justify-between items-center mb-6 ">
-            <div>
-              <h2 className="text-2xl font-semibold">Courses</h2>
-              <p className="text-gray-400 text-sm mt-1 hidden md:block   ">
-                A list of all the course in your account including their
-                coursename, fees, eligibility and description.
-              </p>
+      {data.length <=0 && loading && <h1 className=" text-center mt-50">Loading...</h1>}
+
+      {data.length > 0 && (
+        <div className=" h-[calc(100vh-60px)]   ">
+          <div className="max-w-9xl mx-auto  rounded relative shadow p-6 border-3 ">
+            {/* Header */}
+
+            <div className="flex justify-between items-center mb-6 ">
+              <div>
+                <h2 className="text-2xl font-semibold">Courses</h2>
+                <p className="text-gray-400 text-sm mt-1 hidden md:block   ">
+                  A list of all the course in your account including their
+                  coursename, fees, eligibility and description.
+                </p>
+              </div>
+              <NewCourse add={addCourse} />
             </div>
+<<<<<<< HEAD
             <NewCourse add={addCourse} />
           </div>
 
@@ -94,10 +113,39 @@ const Course = () => {
                   <th className="py-3  font-semibold border-black px-2  ">Actions</th>
                 </tr>
               </thead>
+=======
+            
+            <div className="overflow-x-auto max-h-120  overflow-y-scroll  relative border  rounded ">
+              <table className="w-full text-left border-collapse  ">
+                <thead className=" text-sm  border-b border-gray-700 sticky top-0  z-10 ">
+                  <tr className=" z-50 bg-blue-400   text-white ">
+                    <th className="py-3 border-r font-semibold border-black  px-2 ">
+                      CourseName
+                    </th>
+                    <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block md:block ">
+                      Duration
+                    </th>
+                    <th className="py-3 border-r font-semibold border-black px-2 ">
+                      fees
+                    </th>
+                    <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block   ">
+                      Eligibility
+                    </th>
+                    <th className="py-3 border-r font-semibold border-black px-2">
+                      Active/NA
+                    </th>
+                    <th className="py-3 border-r font-semibold border-black px-2 hidden sm:block ">
+                      Description
+                    </th>
+                    <th className="py-3  font-semibold border-black px-2  ">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+>>>>>>> hod
 
-              <tbody>
-                {data?.length > 0 ? (
-                  data.map((item) => (
+                <tbody>
+                  {data.map((item) => (
                     <tr
                       className="border-b border-gray-700  transition hover:bg-gray-200 "
                       key={item._id}
@@ -129,19 +177,13 @@ const Course = () => {
                         </div>
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td className="">
-                      <Loader className="animate-spin" />
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </Layout>
   );
 };

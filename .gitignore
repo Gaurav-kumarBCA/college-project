@@ -5,6 +5,9 @@ admin/.env
 server/.env
 client/.env
 client/.vite
+<<<<<<< HEAD
 hod/.vite
 hod/.env
+=======
+>>>>>>> hod
 HOD/.env

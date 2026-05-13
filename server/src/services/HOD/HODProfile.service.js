@@ -11,6 +11,7 @@ const getAllUsersDB = async () => {
   return await User.find({ role: "user" }).select("user email role name ");
 };
 
+
 const addImageDB = async (data) => {
   return await ProfileImage.insertOne(data);
 };

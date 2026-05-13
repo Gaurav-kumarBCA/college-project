@@ -4,7 +4,7 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recha
 
 const Dashboard = ({data}) => {
  
-  const colors = ["#FFA500", "#008000", "#FF0000"];
+  const colors = ["#FFA500", "#008000", "#FF0000",];
    
   return (
     <div className="w-full h-[300px] sm:h-[350px] lg:h-[400px] border rounded-xl p-2">

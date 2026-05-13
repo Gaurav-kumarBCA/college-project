@@ -16,12 +16,12 @@ const NewCourse = ({ add }) => {
       >
         Add coures
       </button>
-      <Dailog open={open} close={onClose} add={add} />
+      <Dailog open={open} close={onClose} add={add} setOpen={setOpen}/>
     </div>
   );
 };
 
-const Dailog = ({ open, close, add }) => {
+const Dailog = ({ open, close, add, setOpen }) => {
   const [input, setInput] = useState({
     courseName: "",
     duration: "",
@@ -31,7 +31,6 @@ const Dailog = ({ open, close, add }) => {
     eligibility: "",
 
   });
-  // const [imageFile, setImageFile] = useState([]);
 
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
@@ -45,7 +44,7 @@ const Dailog = ({ open, close, add }) => {
     setImageFile(file);
 
      if (uploaded || imageFile) {
-       alert("Only one image allowed ❌");
+       alert("Only one image allowed ");
        return;
      }
 
@@ -60,16 +59,19 @@ const Dailog = ({ open, close, add }) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = async () => {
+  const submitHandler = async (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     try {
       if (!imageUrl) {
         alert("Please upload image first");
+        // setOpen(true)
         return;
       }
 
       const finalData = {
         ...input,
-        Image: imageUrl, // ✅ MOST IMPORTANT LINE
+        Image: imageUrl, // MOST IMPORTANT LINE
       };
       const url = import.meta.env.VITE_SERVER_URL;
       const res = await fetch(`${url}/HOD/addcourse`, {
@@ -98,6 +100,7 @@ const Dailog = ({ open, close, add }) => {
         isActive: "",
         description: "",
         eligibility: "",
+        // image:""
       });
 
       close();
@@ -112,7 +115,7 @@ const Dailog = ({ open, close, add }) => {
 
       if (!imageFile) {
         alert("Please select image first");
-        setIsUploading(false);
+        // setIsUploading(false);
         return;
       }
 
@@ -129,7 +132,7 @@ const Dailog = ({ open, close, add }) => {
       setIsUploading(true);
 
       const formData = new FormData();
-      formData.append("file", imageFile); // ✅ actual file
+      formData.append("file", imageFile); //  actual file
       formData.append("upload_preset", preset);
       formData.append("folder", "Course_Image/images");
 
@@ -145,7 +148,7 @@ const Dailog = ({ open, close, add }) => {
 
       console.log("Cloudinary Response:", data);
 
-      // ✅ Save URL
+      //  Save URL
       setImageUrl(data.secure_url);
       setUploaded(true);
       alert("✅ Image uploaded successfully");
@@ -157,6 +160,10 @@ const Dailog = ({ open, close, add }) => {
     }
   };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> hod
   return (
     <div
       className={`${open ? "flex" : "hidden"} fixed inset-0 bg-gray-500/50 z-100  justify-center items-center min-h-screen w-full`}
@@ -270,7 +277,7 @@ const Dailog = ({ open, close, add }) => {
             </label>
 
             <input
-              onChange={ImageHandler} // ✅ yaha sirf file select
+              onChange={ImageHandler} 
               className="border-2 border-gray-300 px-4 py-2 rounded-2xl"
               type="file"
               accept="image/*"
@@ -282,6 +289,7 @@ const Dailog = ({ open, close, add }) => {
               onClick={uploadImage}
               disabled={isUploading || uploaded}
               className="flex bg-orange-300 hover:bg-orange-400 mt-2 rounded-2xl px-3 py-2 disabled:opacity-50"
+              
             >
               {isUploading ? "Uploading..." : uploaded  ? "Uploaded"  : "Upload"}
             </button>

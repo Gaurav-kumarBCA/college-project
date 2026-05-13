@@ -89,12 +89,6 @@ const admissionSchema = new mongoose.Schema(
       },
     ],
 
-    // eligible: {
-    //   type: String,
-    //   enum: ["Pending", "Approved", "Rejected"],
-    //   default: "Pending"
-    // },
-
     submittedAt: { type: Date, default: Date.now },
   },
   { timestamps: true },
