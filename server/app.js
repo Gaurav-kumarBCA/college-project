@@ -16,35 +16,39 @@ const publicRoutes = require("./src/routes/public.routes");
 
 const app = express();
 
-// ✅ PORT FIX (Render compatible)
+// PORT FIX (Render compatible)
 const PORT = process.env.PORT || 7000;
 
-// ✅ DB CONNECT
+//  DB CONNECT
 connectDB();
 
+<<<<<<< HEAD
+=======
+//  MIDDLEWARE
+>>>>>>> af7654ee1524064868ceffb371ad5240ed80e8dc
 app.use(express.json());
 
 
 app.use(cors());
 
-// ✅ TEST ROUTE
+//  TEST ROUTE
 app.get("/", (req, res) => {
   res.send("Server running 🚀");
 });
 
-// ✅ PUBLIC ROUTES
+//  PUBLIC ROUTES
 app.use("/auth", auth);
 app.use("/public", publicRoutes);
 app.use("/hod", hod);
 
-// ✅ PROTECTED ROUTES
+//  PROTECTED ROUTES
 app.use(authMiddleware);
 
 app.use("/user", user);
 app.use("/HOD", hodmiddleware, HOD);
 app.use("/admin", adminmiddleware, adminRoutes);
 
-// ✅ START SERVER
+//  START SERVER
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
