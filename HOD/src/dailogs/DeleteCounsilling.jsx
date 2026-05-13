@@ -1,12 +1,14 @@
 import { Trash, X } from "lucide-react";
 import React, { useState } from "react";
 
-const DeleteCourse = ({ deleteD , id}) => {
+const DeleteCounsilling = ({ deleteD, id }) => {
   const [open, setOpen] = useState(false);
 
   const close = () => {
     setOpen(false);
   };
+
+
 
   return (
     <div>
@@ -21,32 +23,28 @@ const DeleteCourse = ({ deleteD , id}) => {
   );
 };
 
-const Dailog = ({ open, close , deleteD , id }) => {
-
-const courseDelete = async () => {
-  try {
-    const url = import.meta.env.VITE_SERVER_URL;
-
-    const res = await fetch(`${url}/HOD/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      deleteD(id); // sirf success pe
-      close(); // dialog close
-    } else {
-      alert(data.error || "something went wrong");
+const Dailog = ({ open, close, id, deleteD }) => {
+  const CounsillingDeleted = async () => {
+    try {
+      const url = import.meta.env.VITE_SERVER_URL;
+      const res = await fetch(`${url}/HOD/counselling/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      const data = await res.json();
+      if (data.success) {
+        deleteD(id); // id pass
+        close();
+      } else {
+        alert(data.error || "something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-};
+  };
 
   return (
     <div
@@ -54,7 +52,7 @@ const courseDelete = async () => {
     >
       <div className=" bg-white w-100 p-5 mx-4  text-black  relative rounded  cursor-pointer">
         <h3 className="text-center text-black font-medium font-sans">
-          Are you sure you want to delete this Course
+          Are you sure you want to delete this Counsilling
         </h3>
         <X
           onClick={close}
@@ -63,11 +61,14 @@ const courseDelete = async () => {
         <div className="flex justify-center gap-5 m-3 cursor-pointer ">
           <button
             onClick={close}
-            className="  bg-[#6B7280] text-white rounded-lg  px-5 py-1 cursor-pointer hover:bg-gray-700 font-bold  "
+            className=" bg-[#6B7280] text-white rounded-lg  px-5 py-1 cursor-pointer hover:bg-gray-700 font-bold  "
           >
             Cancel
           </button>
-          <button onClick={courseDelete} className=" bg-red-500 rounded-lg  px-5 py-1 cursor-pointer hover:bg-red-700 text-white font-bold">
+          <button
+            onClick={CounsillingDeleted}
+            className=" bg-red-500 rounded-lg  px-5 py-1 cursor-pointer hover:bg-red-700 text-white font-bold"
+          >
             Delete
           </button>
         </div>
@@ -76,4 +77,4 @@ const courseDelete = async () => {
   );
 };
 
-export default DeleteCourse;
+export default DeleteCounsilling;

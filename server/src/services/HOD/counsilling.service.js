@@ -5,4 +5,8 @@ const getEnrollmentDB = async () => {
   return await getData;
 };
 
-module.exports = { getEnrollmentDB };
+const deleteCounsillingDB = async (id) => {
+  return await Counselling.findByIdAndDelete(id);
+};
+
+module.exports = { getEnrollmentDB , deleteCounsillingDB };

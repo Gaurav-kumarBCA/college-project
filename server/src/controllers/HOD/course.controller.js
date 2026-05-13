@@ -65,7 +65,7 @@ const course = async (req, res) => {
 const updateCourse = async (req, res) => {
     const {id} = req.params;
     const updatedBody = req.body;
-    console.log(id, updatedBody,"id");
+    
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({
@@ -116,7 +116,7 @@ const deleteCourse = async (req, res) => {
     }
     try {
         const courseDelete = await deleteCourseDB(id);
-        console.log(courseDelete,"klmno");
+    
         if(!courseDelete){
             return res.status(404).json({
                 success: false,

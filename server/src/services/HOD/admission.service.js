@@ -20,4 +20,9 @@ const getFullInfoDB = async({id})=>{
   return  data;
 }
 
-module.exports = { getAdmissionFormDB, admissionFormDB ,getFullInfoDB};
+const DelteAdmissionDB=async(id)=>{
+    const deleteAdmission=await Admission.findByIdAndDelete(id);
+    return deleteAdmission;
+}
+
+module.exports = { getAdmissionFormDB, admissionFormDB ,getFullInfoDB,DelteAdmissionDB};

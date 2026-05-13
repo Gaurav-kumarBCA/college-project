@@ -31,7 +31,6 @@ const Dailog = ({ open, close, add, setOpen }) => {
     eligibility: "",
 
   });
-  // const [imageFile, setImageFile] = useState([]);
 
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
@@ -72,7 +71,7 @@ const Dailog = ({ open, close, add, setOpen }) => {
 
       const finalData = {
         ...input,
-        Image: imageUrl, // ✅ MOST IMPORTANT LINE
+        Image: imageUrl, // MOST IMPORTANT LINE
       };
       const url = import.meta.env.VITE_SERVER_URL;
       const res = await fetch(`${url}/HOD/addcourse`, {
@@ -133,7 +132,7 @@ const Dailog = ({ open, close, add, setOpen }) => {
       setIsUploading(true);
 
       const formData = new FormData();
-      formData.append("file", imageFile); // ✅ actual file
+      formData.append("file", imageFile); //  actual file
       formData.append("upload_preset", preset);
       formData.append("folder", "Course_Image/images");
 
@@ -149,7 +148,7 @@ const Dailog = ({ open, close, add, setOpen }) => {
 
       console.log("Cloudinary Response:", data);
 
-      // ✅ Save URL
+      //  Save URL
       setImageUrl(data.secure_url);
       setUploaded(true);
       alert("✅ Image uploaded successfully");
@@ -161,128 +160,6 @@ const Dailog = ({ open, close, add, setOpen }) => {
     }
   };
 
-  // const uploadImage = async (file) => {
-  //   try {
-  //     const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-  //     const preset = import.meta.env.VITE_CLOUDINARY_PRESET_NAME;
-
-  //     console.log("Cloud:", cloudName);
-  //     console.log("Preset:", preset);
-
-  //     const formData = new FormData();
-  //     formData.append("file", file);
-  //     formData.append("upload_preset", preset);
-  //     formData.append("folder", "Course_Image/images");
-
-  //     const res = await fetch(
-  //       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-  //       {
-  //         method: "POST",
-  //         body: formData,
-  //       },
-  //     );
-
-  //     const data = await res.json();
-
-  //     console.log("Cloudinary Response:", data);
-  //     // ✅ URL save karo
-  //     // setImageFile(data.secure_url);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const uploadImage = async (file) => {
-  //   try {
-  //     const cloudName = import.meta.env.VITE_SERVER_URL_CLOUDINARY_NAME;
-  //     console.log(cloudName);
-  //     const preset = import.meta.env.VITE_SERVER_URL_CLOUDINARY_NAME_PRESETNAME;
-  //     console.log(preset);
-
-  //     const formData = new FormData();
-  //     formData.append("file", file);
-  //     formData.append("upload_preset", preset);
-  //     formData.append("folder", `Course_Image/images`);
-
-  //     const res = await fetch(
-  //       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-  //       {
-  //         method: "POST",
-  //         body: formData,
-  //       },
-  //     );
-
-  //     const data = await res.json();
-
-  //     console.log(data, "hi data this is sucure");
-
-  //     // CourseImage = data.secure_url;
-
-  //     // console.log(CourseImage);
-  //     setImageFile(data,'fjdskahk');
-  //   } catch (error) {
-  //     console.log(error);
-  //     return null;
-  //   }
-  // };
-
-  // const bodyData = { ...input, CourseImage };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   // 1. Upload image to Cloudinary
-  //   // const imageUrl = await uploadImage(imageFile);
-
-  //   if (!imageUrl) {
-  //     alert("Image upload failed");
-  //     return;
-  //   }
-
-  //   // 2. Send data to backend
-  //   const res = await fetch("http://localhost:5000/api/course", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(bodyData),
-  //   });
-
-  //   const data = await res.json();
-  //   console.log(data);
-  // };
-
-  // const uploadImage = async (file) => {
-  //   // upload images to cloudinary
-
-  //   try {
-  //     const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-  //     const preset = import.meta.env.VITE_CLOUDINARY_PRESET_NAME;
-
-  //     const formData = new FormData();
-  //     formData.append("file", file);
-  //     formData.append("upload_preset", preset);
-  //     formData.append("folder", `Course_Image/images`);
-  //     // console.log(preset);
-  //     const res = await fetch(
-  //       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-  //       {
-  //         method: "POST",
-  //         body: formData,
-  //       },
-  //     );
-  //     const data = await res.json();
-  //     console.log(data,'hi data image uploaod successfully');
-  //     // console.log("image uploaded:", data);
-  //     // console.log(data?.secure_url);
-  //     // return {
-  //     //   url: data.secure_url,
-  //     // };
-  //   } catch (error) {
-  //     console.log(error);
-  //     return null;
-  //   }
-  // };
 
   return (
     <div
@@ -397,7 +274,7 @@ const Dailog = ({ open, close, add, setOpen }) => {
             </label>
 
             <input
-              onChange={ImageHandler} // ✅ yaha sirf file select
+              onChange={ImageHandler} 
               className="border-2 border-gray-300 px-4 py-2 rounded-2xl"
               type="file"
               accept="image/*"

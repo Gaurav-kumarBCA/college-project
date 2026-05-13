@@ -1,8 +1,5 @@
-const {
-  getAdmissionFormDB,
-  getFullInfoDB,
-  admissionFormDB,
-} = require("../../services/HOD/admission.service");
+const {getAdmissionFormDB,getFullInfoDB,admissionFormDB,DelteAdmissionDB,} = require("../../services/HOD/admission.service");
+const mongoose=require("mongoose")
 
 const getAdmissionForm = async (req, res) => {
   try {
@@ -94,8 +91,38 @@ const getFullInfo = async (req, res) => {
   }
 };
 
-module.exports = {
-  getAdmissionForm,
-  admissionForm,
-  getFullInfo,
+const DelteAdmission= async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({
+      success: false,
+      error: "Invalid admission Id",
+    });
+  }
+  try {
+    const AdmissionDelete = await DelteAdmissionDB(id);
+  
+    // if (!AdmissionDelete) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     error: " Something went wrong while deleting",
+    //   });
+    // }
+    
+    return res.status(200).json({
+      success: true,
+      message: "Admission deleted successfully",
+      data: AdmissionDelete,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      error: "Something went wrong",
+    });
+  }
 };
+
+
+module.exports = {getAdmissionForm,admissionForm,getFullInfo,DelteAdmission};

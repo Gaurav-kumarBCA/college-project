@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <div className="flex flex-1">
         {/* Sidebar → mobile pe hidden */}
 
-        <div className="hidden md:block">
+        <div className="hidden md:block ">
           <Sidebar />
         </div>
 

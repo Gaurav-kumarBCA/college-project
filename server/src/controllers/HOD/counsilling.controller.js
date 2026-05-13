@@ -1,4 +1,4 @@
-const { getEnrollmentDB } = require("../../services/HOD/counsilling.service");
+const { getEnrollmentDB, deleteCounsillingDB } = require("../../services/HOD/counsilling.service");
 
 const getCounselling = async (req, res) => {
   try {
@@ -16,4 +16,27 @@ const getCounselling = async (req, res) => {
     });
   }
 };
-module.exports={getCounselling};
+
+const deleteCounsilling = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deleteEnroll = await deleteCounsillingDB(id);
+    return res.status(200).json({
+      success: true,
+      message: "Counsilling deleted successfully",
+      data: deleteEnroll,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};
+
+
+module.exports={getCounselling, deleteCounsilling};

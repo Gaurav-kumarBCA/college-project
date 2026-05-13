@@ -14,7 +14,6 @@ const getHODProfile = async (req, res) => {
   }
 }
 
-
 const getAllUsers=async(req,res)=>{
   try {
   const data=await getAllUsersDB();
